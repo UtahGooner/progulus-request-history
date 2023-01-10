@@ -6,7 +6,7 @@ export async function fetchHistory(props:HistoryNavProps):Promise<PlayHistory[]>
     try {
         const query = new URLSearchParams();
         query.set('start', (props.page * props.rowsPerPage).toString());
-        query.set('limit',  Math.max(props.rowsPerPage, 100).toString());
+        query.set('limit',  Math.min(props.rowsPerPage, 100).toString());
         if (props.me) {
             query.set('me', '1');
         }
