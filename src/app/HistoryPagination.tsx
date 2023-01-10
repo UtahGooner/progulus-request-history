@@ -24,7 +24,7 @@ const HistoryPagination = () => {
     }
 
     const onChangeMe = (ev:ChangeEvent<HTMLSelectElement>) => {
-        dispatch(loadHistory({page: 1, rowsPerPage, me: ev.target.value === 'me'}))
+        dispatch(loadHistory({page: 0, rowsPerPage, me: ev.target.value === 'me'}))
     }
 
     return (
