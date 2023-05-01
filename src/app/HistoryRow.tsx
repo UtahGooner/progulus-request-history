@@ -10,7 +10,7 @@ import SongLink from "./SongLink";
 const epicDuration = 13 * 60 * 1000;
 const HistoryRow = ({row}: { row: PlayHistory }) => {
     const rowClassName = classNames({
-        epic: row.duration > epicDuration,
+        epic: (+row.duration) > epicDuration,
         hal: !row.username
     })
     return (
