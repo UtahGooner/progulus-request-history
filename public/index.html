@@ -1,49 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="//progulus.com/node_modules/jquery-ui/dist/themes/base/jquery-ui.css">
-    <!-- template.head.inc.php -->
-    <link rel="stylesheet" type="text/css" href="//progulus.com/rprweb/css/general.css?_=2016.11.18.15.49">
-    <link rel="stylesheet" type="text/css" href="//progulus.com/rprweb/css/playing.css?_=2016.11.18.15.49">
-    <link rel="stylesheet" type="text/css" href="//progulus.com/rprweb/css/new-search.css?_=2016.11.18.15.49">
-</head>
-<body>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Progulus - Request</title>
+    <meta name="keywords" content="progulus, progressive rock radio station, progressive metal, progressive rock, art rock, avante garde,
+  Yes, Genesis, Pink Floyd, The Flower Kings, Spock's Beard, Porcupine Tree, Frost*, A.C.T. ">
+    <meta name="description" content="Progulus is a progressive rock radio station playing the best of prog from the 60's to current
+    from around the world. Listen free online! Song selection for play is driven by user request. Come queue songs from our huge tracts of ... uh, songs.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="ALL">
+    <meta name="rating" content="General">
+    <meta name="author" content="Progulus Radio">
+    <link href="https://fonts.googleapis.com/css?family=Armata" rel="stylesheet">
+    <script>
+
+        /*!
+         * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
+         * Copyright 2011-2023 The Bootstrap Authors
+         * Licensed under the Creative Commons Attribution 3.0 Unported License.
+         */
+
+        (function () {
+            'use strict'
+
+            let themeEl = document.querySelector('#ui--toggle-dark-mode');
+            const getStoredTheme = () => window.localStorage.getItem('theme')
+            const setStoredTheme = (theme) => window.localStorage.setItem('theme', theme)
+
+            const getPreferredTheme = () => {
+                const storedTheme = getStoredTheme()
+                if (storedTheme) {
+                    return storedTheme
+                }
+
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+            }
+
+            const setTheme = (theme) => {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark')
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme)
+                }
+            }
+
+            setTheme(getPreferredTheme())
+
+            const showActiveTheme = (theme, focus = false) => {
+                if (themeEl) {
+                    themeEl.innerText = theme === 'dark' ? '➠ Light' : '➠ Dark';
+                }
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)')
+                .addEventListener('change', () => {
+                    const storedTheme = getStoredTheme()
+                    if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                        setTheme(getPreferredTheme())
+                    }
+                })
+
+            window.addEventListener('DOMContentLoaded', () => {
+                themeEl = document.querySelector('#ui--toggle-dark-mode');
+                showActiveTheme(getPreferredTheme());
+                if (themeEl) {
+                    themeEl.dataset.bsThemeValue = getPreferredTheme();
+                    themeEl.addEventListener('click', (ev) => {
+                        ev.preventDefault();
+                        const nextMode = themeEl.dataset.bsThemeValue === 'light' ? 'dark' : 'light';
+                        setStoredTheme(nextMode);
+                        setTheme(getPreferredTheme());
+                        themeEl.dataset.bsThemeValue = nextMode;
+                        showActiveTheme(getPreferredTheme());
+                    })
+                }
+            });
+        }());
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://progulus.com/node_modules/jquery-ui/dist/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://progulus.com/rprweb/css/general.css?_=1749150302">
+    <link rel="stylesheet" href="https://progulus.com/rprweb/css/flags/flag-icons.css?_=1739564415">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Google tag (gtag.js) -->
+    <style>
+    </style>
+</head><body>
 <div>
     <div id="page">
-        <div id="doc2" class="container">
-            <div id="hd">
-                <div id="header">
+        <div id="doc2" class="container progulus-content">
+            <header>
+                <div style="display: flex;justify-content: flex-end;padding-top: 0.5rem;padding-right: 0.5rem;">
+                    <div style="line-height: 0;">
+                        <iframe src="https://www.patreon.com/platform/iframe?widget=become-patron-button&amp;redirectURI=https%3A%2F%2Fprogulus.com%2Frprweb%2F%23page-history&amp;creatorID=50361285"
+                                scrolling="no" allowtransparency="true" frameborder="0" class="patreon-widget"
+                                title="Patreon Widget"
+                                style="position: static; visibility: visible; width: 176px; height: 36px;"></iframe>
+                    </div>
+                    <script async="" src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
                 </div>
-            </div>
-            <div id="menubar-2015" class="row">
-                <div class="right-panel col-md-8 col-sm-12">
-                    <div class="padder menu">
-                        <ul>
-                            <li title="Now Playing" class="gradient2011 selected"><a href="/rprweb/#page-playing" target="_self" id="menu-now-playing-link">Now Playing</a></li><li title="Request" class="gradient2011"><a href="/rprweb/#page-search" target="_self" id="menu-search-link">Request</a></li><li title="➠ Dark" class="gradient2011 "><a href="/metal/#page-playing" target="_self">➠ Dark</a></li><li title="Forums" class="gradient2011 "><a href="/phpBB3/" target="_blank">Forums</a></li><li title="Top Requests" class="gradient2011 "><a href="/rprweb/top_songs.php" target="_self">Top Requests</a></li><li title="History" class="gradient2011"><a href="/rprweb/history.php" target="_self" id="menu-history-link">History</a></li><li title="CD List" class="gradient2011 "><a href="/rprweb/cdlist.php" target="_self">CD List</a></li><li title="Logout" class="gradient2011 "><a href="/phpBB3/ucp.php?mode=logout&amp;sid=471ee474d66a938a9cd368313fbbb1dc" target="_self" id="menu-logout">Logout</a></li>                    </ul>
+                <div id="hd" class="logo-container">
+                    <div id="header" class="logo-banner">
                     </div>
                 </div>
-                <div class="left-panel col-md-4 col-sm-12">
-                    <div class="padder menu">
-                        <ul>
-                            <li id="mini-logo" style="display: none;"><img src="/rprweb/images/progulus-logo-1.png" alt="mini-logo"></li><li title="Listen Now" class="gradient2011 "><a href="http://149.56.234.136:9992/index.html?sid=1" target="_blank" id="listen_link">Listen Now</a></li><li title="♫" class="gradient2011 "><a href="listen.pls" target="_blank" id="listen_link2">♫</a></li><li title="(Tips)" class="small plain "><a href="/phpBB3/viewtopic.php?f=1&amp;t=29" target="_blank">(Tips)</a></li>                        <li>
-                        </li>
+                <div id="menubar-2015" class="row my-5 gx-5">
+                    <div class="col-lg-8 col-sm-12">
+                        <ul class="menu-bar">
+                            <li class="menu-item" id="menu--now-playing">
+                                <a href="/rprweb/#page-playing" target="_self" id="menu-now-playing-link">
+                                    <span class="bi-music-note-list"></span>
+                                    <span class="d-none d-md-inline ms-1">Now Playing</span>
+                                </a>
+                            </li>
+                            <li class="menu-item" id="menu--request">
+                                <a href="/rprweb/#page-search" target="_self" id="menu-search-link">
+                                    <span class="bi-search"></span>
+                                    <span class="d-none d-md-inline ms-1">Request</span>
+                                </a>
+                            </li>
+                            <li class="menu-item " id="menu--top-songs">
+                                <a href="/rprweb/top_songs.php" target="_self" id="menu--top-songs-link">
+                                    <span class="bi-sort-up"></span>
+                                    <span class="d-none d-md-inline ms-1">Top Requests</span>
+                                </a>
+                            </li>
+                            <li class="menu-item selected" id="menu--history">
+                                <a href="/rprweb/#page-history" target="_self" id="menu-history-link">
+                                    <span class="bi-clock-history"></span>
+                                    <span class="d-none d-md-inline ms-1">History</span>
+                                </a>
+                            </li>
+                            <li class="menu-item " id="menu--forums">
+                                <a href="/phpBB3" target="_blank" rel="noreferrer" id="menu-forums-link">
+                                    <span class="bi-card-text"></span>
+                                    <span class="d-none d-md-inline ms-1">Forums</span>
+                                </a>
+                            </li>
+                            <li class="menu-item" id="menu--logout">
+                                <a href="/phpBB3/ucp.php?mode=logout&amp;sid=19a3d26a4621feae2e6210bfe7612101"
+                                   target="_self" id="menu-logout">
+                                    <span class="bi-person-x-fill"></span>
+                                    <span class="d-none d-md-inline ms-1">Logout</span>
+                                </a>
+                            </li>
+                            <li class="menu-item menu-item--plain dropdown">
+                                <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown"
+                                        aria-expanded="false" aria-label="Current Theme">
+                                    <span class="menu--current-theme bi-circle-half"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li>
+                                        <div class="dropdown-item" data-prog-theme="light">
+                                            <span class="bi-sun"></span>
+                                            Light
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" data-prog-theme="dark">
+                                            <span class="bi-moon-stars" aria-label="Dark Theme"></span>
+                                            Dark
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" data-prog-theme="auto">
+                                            <span class="bi-circle-half" aria-label="Auto Theme"></span>
+                                            Auto
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
+                    <div class="d-none d-sm-block col-lg-4 col-sm-12">
+                        <div class="audio-player--container">
+                            <audio controls="" id="progulus--audio-player">
+                                <source src="https://centova.radioservers.biz/proxy/klemmer/stream" type="audio/mpeg">
+                            </audio>
+                            <a href="http://centova.radioservers.biz:8063/index.html?sid=1" target="_blank"
+                               id="listen_link2" rel="noreferrer" class="btn btn-link btn-sm ">
+                                <span class="bi bi-box-arrow-up-right" aria-label="Open in new window"></span>
+                            </a>
+                            <a href="listen.pls" target="_blank" id="listen_link2--download"
+                               class="btn btn-link btn-sm ">
+                                <span class="bi bi-download" aria-label="Download listen.pls"></span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div id="bd" class="row">
-                <div id="right-panel" class="col-md-8 col-sm-12">
-                    <div id="panel-history"></div>
+                <div class="row g-5 mb-3 header-section">
+                    <div class="col-12 col-md-8">
+                        <h1>Now playing: Regular schedule<span class="info">Normal rotation and listener requests</span>
+                        </h1>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div id="listener-count">
+                            <div>Listeners</div>
+                            <div id="listener-count--value">16</div>
+                        </div>
+                    </div>
                 </div>
-                <div id="left-panel" class="col-md-8 col-sm-12">
+            </header>
+            <main>
+                <div id="bd" class="row g-5">
+                    <div id="right-panel" class="col-md-8 col-sm-12">
+                        <div class="">
+                            <div class="box">
+                                <div id="procmsg"></div>
+                                <div id="contents">
+                                    <div id="panel-now-playing" class="prog-panel collapse">
+                                        <h2 class="sr-only">Now Playing</h2>
+                                    </div>
+                                    <div id="panel-history" class="prog-panel collapse show"></div>
+                                    <div id="panel-info" class="prog-panel collapse"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="left-panel" class="col-md-4 col-sm-12">
+                        <div id="div_chat">
+                            <div id="gutentag_content">
 
+                                <script>window.gt6Params = {
+                                    user: "SteveM",
+                                    id: "24"
+                                };</script>
+                                <div id="gt6-app"></div>
+                                <script src="https://gutenprog.com/gt6/main.js" async=""></script>
+                                <script src="https://gutenprog.com/gt6/vendors.js" async=""></script>
+                            </div>
+                        </div>
+
+                        <div id="div_recent_posts" class="mt-5 recent-posts">
+                            <h2 class="section-header">
+                                Recent Posts
+                            </h2>
+                            <div id="recent-posts-container">
+                                <input type="button" id="reload-forums" style="display:none" value="Reload Forums">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div id="scroll-to-top" class="fade fixed-bottom" title="Return to top.">
+                    <button type="button" class="btn btn-outline-secondary">
+                        <span class="bi-arrow-up" aria-label="Scroll to top"></span>
+                    </button>
+                </div>
+            </main>
+            <footer>
+                <div class="bottom-links">
+                    <div><a href="/rprweb/cdlist.php" target="_blank">CD List</a></div>
+                </div>
+                <div id="copyright">© 2025 Progulus Radio
+                </div>
+            </footer>
         </div>
     </div>
 

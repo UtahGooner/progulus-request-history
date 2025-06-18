@@ -9,9 +9,11 @@ const HistoryTable = () => {
 
     return (
         <div className="table-responsive">
-            <div style={{width: '100%', height: '0.25rem', margin: '0.25rem 0'}} className="progress">
-                {loading && <div className="progress-bar progress-bar-striped active" style={{width: '100%'}}/>}
-            </div>
+            {loading && (
+                <div style={{width: '100%', height: '0.25rem', margin: '0.25rem 0'}} className="progress">
+                    <div className="progress-bar progress-bar-striped active" style={{width: '100%'}}/>
+                </div>
+            )}
             <table className="table">
                 <thead>
                 <tr>
